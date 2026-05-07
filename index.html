@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Four Player Pong</title>
+  </head>
+  <body>
+    <main id="app">
+      <section id="game-shell" aria-label="Four Player Pong game">
+        <div id="hud" aria-live="polite">
+          <div class="score-strip" id="score-strip"></div>
+          <div class="status-chip" id="status-chip">Circular 4 Player is ready.</div>
+        </div>
+        <div id="game-root"></div>
+        <div id="menu-overlay" role="dialog" aria-labelledby="menu-title">
+          <div class="menu-panel">
+            <span class="mode-kicker">Circular 4 Player</span>
+            <h1 id="menu-title">Four Ponq</h1>
+            <div class="menu-tabs" role="tablist" aria-label="Menu tabs">
+              <button class="active" type="button" data-menu-tab="play">Play</button>
+              <button type="button" data-menu-tab="settings">Settings</button>
+            </div>
+            <div data-menu-panel="play">
+              <p>Guard your arc, crack shields, and let the circle close around whoever survives.</p>
+              <div class="menu-actions">
+                <button id="start-button" type="button">Start</button>
+                <button id="bot-toggle-button" type="button">Bot Fill: On</button>
+              </div>
+              <div class="menu-details">
+                <span><strong>A</strong> counterclockwise</span>
+                <span><strong>D</strong> clockwise</span>
+                <span><strong>Esc</strong> pause menu</span>
+                <span><strong>Space</strong> charged catch</span>
+              </div>
+            </div>
+            <div data-menu-panel="settings" hidden>
+              <p>Computer opponents only move themselves. P1 stays under live A/D control.</p>
+              <div class="settings-group" aria-label="Computer difficulty">
+                <span>Computer difficulty</span>
+                <div class="difficulty-row">
+                  <button type="button" data-difficulty="easy" aria-pressed="false">Easy</button>
+                  <button class="active" type="button" data-difficulty="medium" aria-pressed="true">Medium</button>
+                  <button type="button" data-difficulty="hard" aria-pressed="false">Hard</button>
+                </div>
+              </div>
+              <div class="menu-details">
+                <span><strong>Triangle</strong> slow spin</span>
+                <span><strong>Paddles</strong> concave</span>
+                <span><strong>Bots</strong> <em id="menu-bot-state">On</em></span>
+                <span><strong>CPU</strong> <em id="menu-difficulty-state">Medium</em></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="pause-button" type="button" aria-label="Pause or resume game">Pause</button>
+        <div id="controls-panel">
+          <span><strong>P1</strong> A/D</span>
+          <span><strong>Move</strong> counter/clockwise</span>
+          <span><strong>Space</strong> charged catch</span>
+          <span><strong>Esc</strong> pause</span>
+          <span><strong>B</strong> bot fill</span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
