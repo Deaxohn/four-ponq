@@ -16,7 +16,16 @@
         <div id="menu-overlay" role="dialog" aria-labelledby="menu-title">
           <div class="menu-panel">
             <span class="mode-kicker">Circular 4 Player</span>
-            <h1 id="menu-title">Four Ponq</h1>
+            <div class="menu-title-row">
+              <h1 id="menu-title">Four Ponq</h1>
+              <div class="mini-ponq" aria-hidden="true">
+                <span class="mini-ponq-arc one"></span>
+                <span class="mini-ponq-arc two"></span>
+                <span class="mini-ponq-arc three"></span>
+                <span class="mini-ponq-arc four"></span>
+                <span class="mini-ponq-ball"></span>
+              </div>
+            </div>
             <div class="menu-tabs" role="tablist" aria-label="Menu tabs">
               <button class="active" type="button" data-menu-tab="play">Play</button>
               <button type="button" data-menu-tab="settings">Settings</button>
@@ -31,7 +40,7 @@
                 <span><strong>A</strong> counterclockwise</span>
                 <span><strong>D</strong> clockwise</span>
                 <span><strong>Esc</strong> pause menu</span>
-                <span><strong>Space</strong> charged catch</span>
+                <span><strong>Bots</strong> <em id="menu-bot-state">On</em></span>
               </div>
             </div>
             <div data-menu-panel="settings" hidden>
@@ -44,11 +53,65 @@
                   <button type="button" data-difficulty="hard" aria-pressed="false">Hard</button>
                 </div>
               </div>
+              <div class="settings-group" aria-label="Game mode">
+                <span>Game mode</span>
+                <div class="game-variant-row">
+                  <button class="active" type="button" data-game-variant="classic" aria-pressed="true">Classic</button>
+                  <button type="button" data-game-variant="rotating" aria-pressed="false">Orbit</button>
+                </div>
+              </div>
+              <div class="settings-group" aria-label="Triangle motion">
+                <span>Triangle motion</span>
+                <div class="triangle-motion-row">
+                  <button class="active" type="button" data-triangle-motion="steady" aria-pressed="true">Steady</button>
+                  <button type="button" data-triangle-motion="reactive" aria-pressed="false">Reactive</button>
+                </div>
+              </div>
+              <div class="settings-group" aria-label="Audio volume">
+                <span>Audio</span>
+                <label class="volume-row">
+                  <span>Music</span>
+                  <input id="music-volume" type="range" min="0" max="100" value="58" />
+                  <em id="menu-music-volume">58%</em>
+                </label>
+                <label class="volume-row">
+                  <span>SFX</span>
+                  <input id="sfx-volume" type="range" min="0" max="100" value="82" />
+                  <em id="menu-sfx-volume">82%</em>
+                </label>
+              </div>
+              <div class="settings-group" aria-label="Theme">
+                <span>Theme</span>
+                <div class="theme-grid">
+                  <button class="active" type="button" data-theme-choice="neon" aria-pressed="true">
+                    <span class="theme-swatch neon"></span>
+                    Neon Classic
+                  </button>
+                  <button type="button" data-theme-choice="solar" aria-pressed="false">
+                    <span class="theme-swatch solar"></span>
+                    Solar Flare
+                  </button>
+                  <button type="button" data-theme-choice="deepSea" aria-pressed="false">
+                    <span class="theme-swatch deep-sea"></span>
+                    Deep Sea
+                  </button>
+                  <button type="button" data-theme-choice="candy" aria-pressed="false">
+                    <span class="theme-swatch candy"></span>
+                    Arcade Candy
+                  </button>
+                  <button type="button" data-theme-choice="mono" aria-pressed="false">
+                    <span class="theme-swatch mono"></span>
+                    Mono Grid
+                  </button>
+                </div>
+              </div>
               <div class="menu-details">
-                <span><strong>Triangle</strong> slow spin</span>
+                <span><strong>Triangle</strong> <em id="menu-triangle-state">Steady</em></span>
+                <span><strong>Mode</strong> <em id="menu-game-variant-state">Classic</em></span>
                 <span><strong>Paddles</strong> concave</span>
-                <span><strong>Bots</strong> <em id="menu-bot-state">On</em></span>
+                <span><strong>Theme</strong> <em id="menu-theme-state">Neon Classic</em></span>
                 <span><strong>CPU</strong> <em id="menu-difficulty-state">Medium</em></span>
+                <span><strong>Music</strong> <em id="menu-music-state">58%</em></span>
               </div>
             </div>
           </div>
